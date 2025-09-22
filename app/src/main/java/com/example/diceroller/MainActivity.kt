@@ -1,27 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_gravity="center_vertical"
-    tools:context=".MainActivity">
+package your.package.name
 
-    <TextView
-        android:id="@+id/dice_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+import android.os.Bundle
+import android.widget.Button
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-    <Button
-        android:id="@+id/roll_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/roll"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"/>
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-</LinearLayout>
+        val rollButton: Button = findViewById(R.id.roll_button)
+
+        rollButton.setOnClickListener {
+            Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show()
+
+          
+        }
+    }
+}
+
 
