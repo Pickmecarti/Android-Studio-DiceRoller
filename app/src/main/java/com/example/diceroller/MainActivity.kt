@@ -1,27 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_gravity="center_vertical"
-    tools:context=".MainActivity">
+package com.example.diceroller
 
-    <TextView
-        android:id="@+id/dice_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import java.util.Random
 
-    <Button
-        android:id="@+id/roll_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/roll"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"/>
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-</LinearLayout>
+        val rollButton: Button = findViewById(R.id.roll_button)
+        rollButton.setOnClickListener {
+            rollDice()
+        }
+    }
+
+    private fun rollDice() {
+        val randomInt = Random().nextInt(6) + 1
+        val resultText: TextView = findViewById(R.id.result_text)
+        resultText.text = randomInt.toString()
+    }
+}
 
